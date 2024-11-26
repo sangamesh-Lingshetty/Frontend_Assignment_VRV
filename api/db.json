@@ -1,0 +1,94 @@
+{
+  "users": [
+    {
+      "name": "mohammed arif G",
+      "email": "Arif5253@gmail.com",
+      "role": "Manager",
+      "status": "Active",
+      "id": "1732481979006"
+    },
+    {
+      "name": "sangamesh",
+      "email": "sangameshlingshetty@gmail.com",
+      "role": "Admin",
+      "status": "Active",
+      "id": "1732626906215"
+    },
+    {
+      "id": "1732634421423",
+      "name": "Manager",
+      "email": "sangameshlingshetty@gmail.com",
+      "role": "User",
+      "status": "Active"
+    },
+    {
+      "id": "1732635631632",
+      "name": "Mounesh",
+      "email": "mouni@gmail.com",
+      "role": "User",
+      "status": "Active"
+    }
+  ],
+  "roles": [
+    {
+      "id": "0738",
+      "name": "Admin",
+      "permissions": [
+        "Update",
+        "Delete"
+      ]
+    },
+    {
+      "id": "ebcf",
+      "name": "Manager",
+      "permissions": [
+        "Read",
+        "Write",
+        "Update"
+      ]
+    },
+    {
+      "id": "41ac",
+      "name": "user",
+      "permissions": [
+        "Read",
+        "Write",
+        "Delete"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "name": "user",
+      "description": "only data",
+      "access_level": "read",
+      "id": "483e"
+    },
+    {
+      "name": "Admin",
+      "description": "all accecss have",
+      "access_level": "write",
+      "id": "d9af"
+    },
+    {
+      "name": "manager23",
+      "description": "he can access evrything23",
+      "access_level": "delete",
+      "id": "ea13"
+    },
+    {
+      "name": "Admin354",
+      "description": "qerferewrw",
+      "access_level": "delete",
+      "id": "4a62"
+    }
+  ],
+  "adminlogin": [
+    {
+      "name": "VRV Security",
+      "password": "AdminLogin",
+      "role": "Admin",
+      "id": "7f00"
+    }
+  ]
+}
