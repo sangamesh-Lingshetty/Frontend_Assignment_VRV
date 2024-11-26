@@ -33,36 +33,6 @@ const User = () => {
     setToggleuser(true);
   };
 
-  // useEffect(() => {
-  //   setIsLoading(true);
-  //   fetch("http://localhost:5000/users")
-  //     .then((res) => {
-  //       if (!res.ok) throw new Error("Failed to fetch users");
-  //       return res.json();
-  //     })
-  //     .then((data) => {
-  //       // Ensure all IDs are strings for consistency
-  //       const normalizedData = data.map((user) => ({
-  //         ...user,
-  //         id: String(user.id),
-  //       }));
-
-  //       const filteredUsers = normalizedData.filter((user) => {
-  //         const matchesRole =
-  //           selectedRole === "All Roles" || user.role === selectedRole;
-  //         const matchesStatus =
-  //           selectedStatus === "All Status" || user.status === selectedStatus;
-  //         return matchesRole && matchesStatus;
-  //       });
-  //       setUsers(filteredUsers);
-  //       setIsLoading(false);
-  //     })
-  //     .catch((error) => {
-  //       toast.error("Failed to load users: " + error.message);
-  //       setIsLoading(false);
-  //     });
-  // }, [selectedRole, selectedStatus]);
-
   const fetchUsers = async () => {
     setIsLoading(true);
     try {
@@ -103,124 +73,6 @@ const User = () => {
       [name]: value,
     }));
   };
-
-  // const hanlderSubmit = async (e) => {
-  //   e.preventDefault();
-  //   setIsLoading(true);
-
-  //   try {
-  //     if (!user.name || !user.email || !user.role || !user.status) {
-  //       // toast.error("Please fill in all fields");
-  //       toast.error("Please fill in all fields", {
-  //         position: "top-right",
-  //         autoClose: 2000,
-  //       });
-  //       return;
-  //     }
-
-  //     if (edit) {
-  //       const response = await fetch(`http://localhost:5000/users/${edit}`, {
-  //         method: "PUT",
-  //         headers: { "Content-Type": "application/json" },
-  //         body: JSON.stringify({
-  //           ...user,
-  //           id: edit, // Ensure ID is included in the update
-  //         }),
-  //       });
-
-  //       if (!response.ok) {
-  //         throw new Error(`Failed to update user: ${response.statusText}`);
-  //       }
-
-  //       const updatedUser = await response.json();
-  //       setUsers((prevUsers) =>
-  //         prevUsers.map((item) => (item.id === edit ? updatedUser : item))
-  //       );
-  //       // toast.success("User updated successfully");
-  //       toast.success("User updated successfully", {
-  //         position: "top-right",
-  //         autoClose: 2000,
-  //       });
-  //     } else {
-  //       const newUser = { ...user, id: Date.now() };
-  //       const response = await fetch("http://localhost:5000/users", {
-  //         method: "POST",
-  //         headers: { "Content-Type": "application/json" },
-  //         body: JSON.stringify(newUser),
-  //       });
-
-  //       if (!response.ok) {
-  //         throw new Error(`Failed to create user: ${response.statusText}`);
-  //       }
-
-  //       const createdUser = await response.json();
-  //       setUsers([...users, createdUser]);
-  //       // toast.success("User added successfully");
-  //       toast.success("User added successfully", {
-  //         position: "top-right",
-  //         autoClose: 2000,
-  //       });
-  //     }
-
-  //     setuser({ name: "", email: "", role: "", status: "" });
-  //     setedit(null);
-  //     setTimeout(() => setToggleuser(false), 1000);
-  //   } catch (error) {
-  //     // toast.error(error.message);
-  //     toast.error(`error ${error.message}`, {
-  //       position: "top-right",
-  //       autoClose: 2000,
-  //     });
-  //   } finally {
-  //     setIsLoading(false);
-  //   }
-  // };
-
-  // const handleEdit = async (id) => {
-  //   setIsLoading(true);
-  //   try {
-  //     // Convert id to string for comparison
-  //     const stringId = String(id);
-
-  //     // First try to find the user in the existing state
-  //     const existingUser = users.find((u) => String(u.id) === stringId);
-
-  //     if (existingUser) {
-  //       // If we have the user in state, use that data
-  //       setuser({
-  //         name: existingUser.name,
-  //         email: existingUser.email,
-  //         role: existingUser.role,
-  //         status: existingUser.status,
-  //       });
-  //       setedit(stringId);
-  //       setToggleuser(true);
-  //     } else {
-  //       // If not in state, try to fetch from server
-  //       const response = await fetch(`http://localhost:5000/users/${id}`);
-  //       if (!response.ok) {
-  //         throw new Error(`User not found (ID: ${id})`);
-  //       }
-  //       const data = await response.json();
-  //       setuser({
-  //         name: data.name,
-  //         email: data.email,
-  //         role: data.role,
-  //         status: data.status,
-  //       });
-  //       setedit(stringId);
-  //       setToggleuser(true);
-  //     }
-  //   } catch (error) {
-  //     console.error("Error editing user:", error);
-  //     toast.error(`error ${error.message}`, {
-  //       position: "top-right",
-  //       autoClose: 2000,
-  //     });
-  //   } finally {
-  //     setIsLoading(false);
-  //   }
-  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -304,34 +156,6 @@ const User = () => {
       setIsLoading(false);
     }
   };
-
-  // const handleDelete = async (id) => {
-  //   if (!window.confirm("Are you sure you want to delete this permission?"))
-  //     return;
-  //   setIsLoading(true);
-  //   try {
-  //     const response = await fetch(`http://localhost:5000/users/${id}`, {
-  //       method: "DELETE",
-  //     });
-
-  //     if (!response.ok) {
-  //       throw new Error("Failed to delete user");
-  //     }
-
-  //     setUsers(users.filter((user) => String(user.id) !== String(id)));
-  //     toast.success("Role deleted successfully", {
-  //       position: "top-right",
-  //       autoClose: 2000,
-  //     });
-  //   } catch (error) {
-  //     toast.error(`error ${error.message}`, {
-  //       position: "top-right",
-  //       autoClose: 2000,
-  //     });
-  //   } finally {
-  //     setIsLoading(false);
-  //   }
-  // };
 
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this user?")) return;
