@@ -20,7 +20,7 @@ export default function Permission() {
 
   const fetchPermissions = () => {
     setIsLoading(true);
-    fetch("http://localhost:5000/permissions")
+    fetch("https://frontend-assignment-backend.onrender.com/permissions")
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch permissions");
         return res.json();
@@ -58,8 +58,8 @@ export default function Permission() {
 
     const method = editingPermission ? "PUT" : "POST";
     const url = editingPermission
-      ? `http://localhost:5000/permissions/${editingPermission.id}`
-      : "http://localhost:5000/permissions";
+      ? `https://frontend-assignment-backend.onrender.com/permissions/${editingPermission.id}`
+      : "https://frontend-assignment-backend.onrender.com/permissions";
 
     fetch(url, {
       method: method,
@@ -113,7 +113,7 @@ export default function Permission() {
       return;
 
     setIsLoading(true);
-    fetch(`http://localhost:5000/permissions/${permissionId}`, {
+    fetch(`https://frontend-assignment-backend.onrender.com/permissions/${permissionId}`, {
       method: "DELETE",
     })
       .then((res) => {
