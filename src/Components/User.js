@@ -36,7 +36,7 @@ const User = () => {
   const fetchUsers = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch("http://localhost:5000/users");
+      const response = await fetch("https://frontend-assignment-backend.onrender.com/users");
       if (!response.ok) throw new Error("Failed to fetch users");
       const data = await response.json();
 
@@ -88,8 +88,8 @@ const User = () => {
       }
 
       const url = edit
-        ? `http://localhost:5000/users/${edit}`
-        : "http://localhost:5000/users";
+        ? `https://frontend-assignment-backend.onrender.com/users/${edit}`
+        : "https://frontend-assignment-backend.onrender.com/users";
 
       const method = edit ? "PUT" : "POST";
 
@@ -132,7 +132,7 @@ const User = () => {
     setIsLoading(true);
     try {
       const stringId = String(id);
-      const response = await fetch(`http://localhost:5000/users/${stringId}`);
+      const response = await fetch(`https://frontend-assignment-backend.onrender.com/users/${stringId}`);
 
       if (!response.ok) {
         throw new Error(`Failed to fetch user (ID: ${stringId})`);
@@ -164,7 +164,7 @@ const User = () => {
 
     try {
       const stringId = String(id);
-      const response = await fetch(`http://localhost:5000/users/${stringId}`, {
+      const response = await fetch(`https://frontend-assignment-backend.onrender.com/users/${stringId}`, {
         method: "DELETE",
       });
 
