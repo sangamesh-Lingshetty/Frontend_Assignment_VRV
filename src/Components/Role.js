@@ -34,7 +34,7 @@ export default function Role() {
   // Separate function to fetch roles
   const fetchRoles = () => {
     setIsLoading(true);
-    fetch("http://localhost:5000/roles")
+    fetch("https://frontend-assignment-backend.onrender.com/roles")
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch roles");
         return res.json();
@@ -109,7 +109,7 @@ export default function Role() {
 
       if (edit) {
         // Editing an existing role
-        const response = await fetch(`http://localhost:5000/roles/${edit}`, {
+        const response = await fetch(`https://frontend-assignment-backend.onrender.com/roles/${edit}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -142,7 +142,7 @@ export default function Role() {
         
       } else {
         // Creating a new role
-        const response = await fetch("http://localhost:5000/roles", {
+        const response = await fetch("https://frontend-assignment-backend.onrender.com/roles", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
@@ -190,7 +190,7 @@ export default function Role() {
     setIsLoading(true);
   
     try {
-      const response = await fetch(`http://localhost:5000/roles/${id}`, {
+      const response = await fetch(`https://frontend-assignment-backend.onrender.com/roles/${id}`, {
         method: "DELETE",
       });
   
