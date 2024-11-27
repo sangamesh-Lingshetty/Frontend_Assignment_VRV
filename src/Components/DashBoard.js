@@ -24,9 +24,9 @@ const DashBoard = () => {
   useEffect(() => {
     setLoading(true);
     Promise.all([
-      fetch("http://localhost:5000/users").then((response) => response.json()),
-      fetch("http://localhost:5000/roles").then((response) => response.json()),
-      fetch("http://localhost:5000/permissions").then((response) => response.json()),
+      fetch("https://frontend-assignment-backend.onrender.com/users").then((response) => response.json()),
+      fetch("https://frontend-assignment-backend.onrender.com/roles").then((response) => response.json()),
+      fetch("https://frontend-assignment-backend.onrender.com/permissions").then((response) => response.json()),
     ])
       .then(([users, roles,permissions]) => {
         setUserdata(users);
