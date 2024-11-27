@@ -37,7 +37,7 @@ const AdminLogin = () => {
     const fetchAdminLogins = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch("http://localhost:5000/adminlogin");
+        const response = await fetch("https://frontend-assignment-backend.onrender.com/adminlogin");
         if (!response.ok) {
           throw new Error("Failed to fetch admin login");
         }
